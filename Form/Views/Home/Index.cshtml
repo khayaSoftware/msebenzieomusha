@@ -1,0 +1,115 @@
+﻿@using Form.Models
+@model Form.Models.Payment
+
+<div class="row">
+    <form action="https://mms.payvector.net/Pages/PublicPages/PaymentForm.aspx" name="paymentform" id="id_form_pay">
+
+        <input type="hidden" name="HashDigest" value="@Model.HashDigest" />
+        <input type="hidden" name="MerchantID" value="" />
+        <input type="hidden" name="EchoAVSCheckResult" value="false" />
+        <input type="hidden" name="EchoCV2CheckResult" value="false" />
+        <input type="hidden" name="EchoThreeDSecureAuthenticationCheckResult" value="false" />
+        <input type="hidden" name="EchoCardType" value="false" />
+        <input type="hidden" name="AVSOverridePolicy" value="PPPP" />
+        <input type="hidden" name="CV2Overridepolicy" value="PP" />
+        <input type="hidden" name="ThreeDSecureOverridePolicy" value="true" />
+        <input type="hidden" name="OrderID" value="Order-1234" />
+        <input type="hidden" name="TransactionType" value="SALE" />
+        <input type="hidden" name="TransactionDateTime" value="SALE" />
+        <input type="hidden" name="EmailAddressEditable" value="false" />
+        <input type="hidden" name="PhoneNumberEditable" value="false" />
+        <input type="hidden" name="CV2Mandatory" value="false" />
+        <input type="hidden" name="Address1Mandatory" value="false" />
+        <input type="hidden" name="CityMandatory" value="false" />
+        <input type="hidden" name="PostCodeMandatory" value="false" />
+        <input type="hidden" name="StateMandatory" value="false" />
+        <input type="hidden" name="CountryMandatory" value="false" />
+        <input type="hidden" name="ResultDeliveryMethod" value="POST" />
+        <input type="hidden" name="ServerResultURL" value="false" />
+        <input type="hidden" name="PaymentFormDisplaysResult" value="false" />
+        <input type="hidden" name="CallbackURL" value="http://www.somedomain.com/callback.php" />
+
+        <div class="form-group">
+            <label for="Amount">Amount</label>
+            <input type="text" name="Amount" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="Currency">Currency</label>
+            <select name="Currency ">
+                <option value="UK">Pound</option>
+                <option value="EURO">Euros</option>
+                <option value="USD">U.S. Dollar</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="CusomerName">Customer Name</label>
+            <input type="text" name="CustomerName" value="A Customer" />
+        </div>
+
+        <div class="form-group">
+            <label for="OrderDescription">Order Description</label>
+            <input name="OrderDescription" type="text" value="description" />
+        </div>
+
+        <div class="form-group">
+            <label for="CustomerName">Customer Name</label>
+            <input type="text" name="CustomerName" value="A Customer" />
+        </div>
+
+        <div class="form-group">
+            <label for="Address1">Address 1</label>
+            <input type="text" name="Address1" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="Address2">Address 2</label>
+            <input type="text" name="Address2" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="Address3">Address 3</label>
+            <input type="text" name="Address3" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="Address4">Address 4</label>
+            <input type="text" name="Address4" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="City">City</label>
+            <input type="text" name="City" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="State">State</label>
+            <input type="text" name="State" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="PostCode">Postcode</label>
+            <input type="text" name="PostCode" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="CountryCode">Country Code</label>
+            <input type="text" name="CountryCode" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="EmailAddress">Email Address</label>
+            <input type="text" name="EmailAddress" value="" />
+        </div>
+
+        <div class="form-group">
+            <label for="PhoneNumber">Phone Number</label>
+            <input type="text" name="PhoneNumber" value="" />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>

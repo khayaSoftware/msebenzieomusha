@@ -1,115 +1,110 @@
 ﻿@using Form.Models
 @model Form.Models.Payment
 
-<div class="row">
-    <form action="https://mms.payvector.net/Pages/PublicPages/PaymentForm.aspx" name="paymentform" id="id_form_pay">
+<div style="margin-top:20px;" class="row">
+    <div class="container">
+        <form action="https://mms.payvector.net/Pages/PublicPages/PaymentForm.aspx" name="paymentform" id="id_form_pay">
 
-        <input type="hidden" name="HashDigest" value="@Model.HashDigest" />
-        <input type="hidden" name="MerchantID" value="" />
-        <input type="hidden" name="EchoAVSCheckResult" value="false" />
-        <input type="hidden" name="EchoCV2CheckResult" value="false" />
-        <input type="hidden" name="EchoThreeDSecureAuthenticationCheckResult" value="false" />
-        <input type="hidden" name="EchoCardType" value="false" />
-        <input type="hidden" name="AVSOverridePolicy" value="PPPP" />
-        <input type="hidden" name="CV2Overridepolicy" value="PP" />
-        <input type="hidden" name="ThreeDSecureOverridePolicy" value="true" />
-        <input type="hidden" name="OrderID" value="Order-1234" />
-        <input type="hidden" name="TransactionType" value="SALE" />
-        <input type="hidden" name="TransactionDateTime" value="SALE" />
-        <input type="hidden" name="EmailAddressEditable" value="false" />
-        <input type="hidden" name="PhoneNumberEditable" value="false" />
-        <input type="hidden" name="CV2Mandatory" value="false" />
-        <input type="hidden" name="Address1Mandatory" value="false" />
-        <input type="hidden" name="CityMandatory" value="false" />
-        <input type="hidden" name="PostCodeMandatory" value="false" />
-        <input type="hidden" name="StateMandatory" value="false" />
-        <input type="hidden" name="CountryMandatory" value="false" />
-        <input type="hidden" name="ResultDeliveryMethod" value="POST" />
-        <input type="hidden" name="ServerResultURL" value="false" />
-        <input type="hidden" name="PaymentFormDisplaysResult" value="false" />
-        <input type="hidden" name="CallbackURL" value="http://www.somedomain.com/callback.php" />
+            <input type="hidden" name="HashDigest" value="@Model.HashDigest" />
+            <input type="hidden" name="MerchantID" value="@Model.MerchantID" />
+            <input type="hidden" name="EchoAVSCheckResult" value="@Model.EchoAVSCheckResult.ToString().ToLower()" />
+            <input type="hidden" name="EchoCV2CheckResult" value="@Model.EchoCV2CheckResult.ToString().ToLower()" />
+            <input type="hidden" name="EchoThreeDSecureAuthenticationCheckResult" value="@Model.EchoThreeDSecureAuthenticationCheckResult.ToString().ToLower()" />
+            <input type="hidden" name="EchoCardType" value="@Model.EchoCardType.ToString().ToLower()" />
+            <input type="hidden" name="AVSOverridePolicy" value="@Model.AVSOverridePolicy" />
+            <input type="hidden" name="CV2Overridepolicy" value="@Model.CV2Overridepolicy" />
+            <input type="hidden" name="ThreeDSecureOverridePolicy" value="@Model.ThreeDSecureOverridePolicy" />
+            <input type="hidden" name="OrderID" value="@Model.OrderID" />
+            <input type="hidden" name="TransactionType" value="@Model.TransactionType" />
+            <input type="hidden" name="TransactionDateTime" value="@Model.TransactionDateTime" />
+            <input type="hidden" name="EmailAddressEditable" value="@Model.EmailAddressEditable.ToString().ToLower()" />
+            <input type="hidden" name="PhoneNumberEditable" value="@Model.PhoneNumberEditable.ToString().ToLower()" />
+            <input type="hidden" name="CV2Mandatory" value="@Model.CV2Mandatory.ToString().ToLower()" />
+            <input type="hidden" name="Address1Mandatory" value="@Model.Address1Mandatory.ToString().ToLower()" />
+            <input type="hidden" name="CityMandatory" value="@Model.CityMandatory.ToString().ToLower()" />
+            <input type="hidden" name="PostCodeMandatory" value="@Model.PostCodeMandatory.ToString().ToLower()" />
+            <input type="hidden" name="StateMandatory" value="@Model.StateMandatory.ToString().ToLower()" />
+            <input type="hidden" name="CountryMandatory" value="@Model.CountryMandatory.ToString().ToLower()" />
+            <input type="hidden" name="ResultDeliveryMethod" value="@Model.ResultDeliveryMethod" />
+            <input type="hidden" name="CallbackURL" value="@Model.CallbackURL" />
+            <input type="hidden" name="CurrencyCode" value="826" />
+            <input type="hidden" name="CountryCode" value="826" />
 
-        <div class="form-group">
-            <label for="Amount">Amount</label>
-            <input type="text" name="Amount" value="" />
-        </div>
+            <div class="form-group col-md-2 clearfix">
+                <label for="Amount">Amount</label>
+                <!-- I have disabled this value because I am assuming that it will be coming from a shop for example -->
+                <input class="form-control" type="text" name="Amount" value="@Model.Amount" />
+            </div>
 
-        <div class="form-group">
-            <label for="Currency">Currency</label>
-            <select name="Currency ">
-                <option value="UK">Pound</option>
-                <option value="EURO">Euros</option>
-                <option value="USD">U.S. Dollar</option>
-            </select>
-        </div>
+            <div class="form-group col-md-4 clearfix">
+                <label for="CusomerName">Customer Name</label>
+                <input type="text" name="CustomerName" class="form-control" value="A Customer" />
+            </div>
 
-        <div class="form-group">
-            <label for="CusomerName">Customer Name</label>
-            <input type="text" name="CustomerName" value="A Customer" />
-        </div>
+            <div class="form-group col-md-12 clearfix">
+                <label for="OrderDescription">Order Description</label>
+                <input name="OrderDescription" type="text" value="description" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="OrderDescription">Order Description</label>
-            <input name="OrderDescription" type="text" value="description" />
-        </div>
+            <div class="form-group col-md-12 clearfix">
+                <label for="CustomerName">Customer Name</label>
+                <input type="text" name="CustomerName" value="A Customer" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="CustomerName">Customer Name</label>
-            <input type="text" name="CustomerName" value="A Customer" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="Address1">Address 1</label>
+                <input type="text" name="Address1" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="Address1">Address 1</label>
-            <input type="text" name="Address1" value="" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="Address2">Address 2</label>
+                <input type="text" name="Address2" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="Address2">Address 2</label>
-            <input type="text" name="Address2" value="" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="Address3">Address 3</label>
+                <input type="text" name="Address3" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="Address3">Address 3</label>
-            <input type="text" name="Address3" value="" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="Address4">Address 4</label>
+                <input type="text" name="Address4" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="Address4">Address 4</label>
-            <input type="text" name="Address4" value="" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="City">City</label>
+                <input type="text" name="City" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="City">City</label>
-            <input type="text" name="City" value="" />
-        </div>
+            <div class="form-group col-md-3 clearfix">
+                <label for="State">State</label>
+                <input type="text" name="State" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="State">State</label>
-            <input type="text" name="State" value="" />
-        </div>
+            <div class="form-group col-md-3 clearfix">
+                <label for="PostCode">Postcode</label>
+                <input type="text" name="PostCode" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="PostCode">Postcode</label>
-            <input type="text" name="PostCode" value="" />
-        </div>
+            <div class="form-group col-md-8 clearfix">
+                <label for="EmailAddress">Email Address</label>
+                <input type="text" name="EmailAddress" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="CountryCode">Country Code</label>
-            <input type="text" name="CountryCode" value="" />
-        </div>
+            <div class="form-group col-md-3 clearfix">
+                <label for="PhoneNumber">Phone Number</label>
+                <input type="text" name="PhoneNumber" value="" class="form-control" />
+            </div>
 
-        <div class="form-group">
-            <label for="EmailAddress">Email Address</label>
-            <input type="text" name="EmailAddress" value="" />
-        </div>
-
-        <div class="form-group">
-            <label for="PhoneNumber">Phone Number</label>
-            <input type="text" name="PhoneNumber" value="" />
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Submit" />
-        </div>
-    </form>
+            <div class="form-group clearfix">
+                <input type="submit" value="Submit" class="btn-primary btn" />
+            </div>
+        </form>
+    </div>
 </div>
+
+<style>
+    .clearfix {
+        clear: both;
+    }
+</style>
